@@ -4,7 +4,6 @@
 <br />
 </p>
 <p align="center"><strong style="font-size: 100px;">EqiBuild</strong></p>
-<p align="center"><strong style="font-size: 30px;">Decentralised Government Tax Control</strong></p>
 <p align="center" style="display: flex; justify-content: center; align-items: center;">
     <span style="display: inline-flex; align-items: center; background-color: #1c1c1c; padding: 5px; border-radius: 6px;">
         <img src="https://img.shields.io/github/stars/jjjutla/melodot?style=social" alt="GitHub stars"/>
