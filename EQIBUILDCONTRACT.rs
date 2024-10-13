@@ -1,8 +1,8 @@
 #![no_std] // Soroban contract
 
-use soroban_sdk::{contractimpl, Env, Address, Symbol, Vec, Map, BytesN};
+use soroban_sdk::{contractimpl, Env, Address, Symbol, Vec, Map};
 
-pub struct CrowdfundingContract;
+pub struct EqiBuildContract;
 
 #[derive(Clone)]
 pub struct Project {
@@ -14,7 +14,7 @@ pub struct Project {
 }
 
 #[contractimpl]
-impl CrowdfundingContract {
+impl EqiBuildContract {
     // Initialize a new project
     pub fn create_project(
         env: Env,
