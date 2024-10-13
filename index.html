@@ -51,6 +51,13 @@
             font-weight: bold;
         }
 
+        /* Top and Bottom Image Styles */
+        .top-image, .bottom-image {
+            width: 100%;
+            height: auto; /* Maintains the aspect ratio of the image */
+            display: block;
+        }
+
         main {
             padding: 50px 0;
         }
@@ -119,6 +126,7 @@
             text-align: center;
         }
 
+        /* Yellow gradient buttons */
         button {
             padding: 10px 20px;
             border: none;
@@ -143,6 +151,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Replaced Placeholder Image with Actual Image -->
+    <img src="https://raw.githubusercontent.com/swiifu/EqiBuild/main/EQIBUILD.png" alt="Top Image" class="top-image">
 
     <header>
         <div class="container">
@@ -195,11 +206,15 @@
         </section>
     </main>
 
+    <!-- Replaced Placeholder Image with Actual Image -->
+    <img src="https://raw.githubusercontent.com/swiifu/EqiBuild/main/EQIBUILD.png" alt="Bottom Image" class="bottom-image">
+
     <footer>
         <p>&copy; 2024 Community Infrastructure Fund</p>
     </footer>
 
     <script>
+        // Store the total amount for each project
         const projectTotals = {
             1: 0,
             2: 0,
@@ -207,18 +222,24 @@
         };
 
         function donateToProject(projectId) {
+            // Get the donation amount input
             const donationInput = document.getElementById(`project-${projectId}-amount`);
             const donationAmount = parseFloat(donationInput.value);
 
+            // Ensure the donation amount is valid
             if (isNaN(donationAmount) || donationAmount <= 0) {
                 alert("Please enter a valid donation amount.");
                 return;
             }
 
+            // Update the project's total amount
             projectTotals[projectId] += donationAmount;
 
+            // Update the total on the page
             const totalElement = document.getElementById(`project-${projectId}-total`);
             totalElement.textContent = projectTotals[projectId].toFixed(2);
+
+            // Clear the input field
             donationInput.value = '';
 
             alert(`Thank you for donating $${donationAmount.toFixed(2)} to Project ${projectId}!`);
