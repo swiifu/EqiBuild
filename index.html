@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #121212; /* Dark background */
@@ -19,7 +18,6 @@
             margin: 0;
             padding: 0;
         }
-
         header {
             background: #1f1f1f; /* Dark header */
             padding: 20px;
@@ -29,57 +27,47 @@
             top: 0;
             z-index: 1000;
         }
-
         header h1 {
             color: #ffffff;
             font-size: 2.5rem;
         }
-
         nav ul {
             list-style-type: none;
         }
-
         nav ul li {
             display: inline;
             margin: 0 15px;
         }
-
         nav ul li a {
             color: #bbb;
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: bold;
         }
-
         /* Top Image Styles */
         .top-image {
             width: 200px;
             height: auto;
             margin: 0 auto; /* Center the image */
         }
-
         /* Bottom Image Styles */
         .bottom-image {
             width: 100px;
             height: auto;
             margin: 0 auto; /* Center the image */
         }
-
         main {
             padding: 50px 0;
         }
-
         .section h2 {
             font-size: 2.5rem;
             color: #fff;
             margin-bottom: 20px;
         }
-
         .section p {
             font-size: 1.2rem;
             color: #ccc;
         }
-
         #projects-list {
             display: flex;
             justify-content: center;
@@ -87,7 +75,6 @@
             gap: 30px;
             padding: 50px 0;
         }
-
         .project-box {
             width: 300px;
             background-color: #1f1f1f; /* Dark background for boxes */
@@ -97,30 +84,24 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
             transition: transform 0.2s ease;
         }
-
         .project-box:hover {
             transform: translateY(-5px);
         }
-
         .project-box h3 {
             font-size: 1.6rem;
             color: #FFD700; /* Golden yellow for project titles */
         }
-
         .project-box p {
             font-size: 1rem;
             color: #aaa;
             margin-bottom: 15px;
         }
-
         .project-box strong {
             color: #fff;
         }
-
         .donation-section {
             margin-top: 20px;
         }
-
         input[type="number"] {
             padding: 10px;
             border-radius: 5px;
@@ -132,7 +113,6 @@
             font-size: 1rem;
             text-align: center;
         }
-
         /* Yellow gradient buttons */
         button {
             padding: 10px 20px;
@@ -144,11 +124,9 @@
             font-size: 1rem;
             transition: background-color 0.2s ease;
         }
-
         button:hover {
             background: linear-gradient(135deg, #FFB300, #FFD700);
         }
-
         footer {
             background-color: #1f1f1f; /* Dark footer */
             padding: 20px;
@@ -158,10 +136,8 @@
     </style>
 </head>
 <body>
-
     <!-- Smaller Top Image -->
     <img src="https://github.com/swiifu/EqiBuild/blob/main/EQIBUILD-removebg-preview.png" alt="Top Image" class="top-image">
-
     <header>
         <div class="container">
             <h1>EqiBuild - Funding public infrastructure</h1>
@@ -174,7 +150,6 @@
             </nav>
         </div>
     </header>
-
     <main>
         <section id="projects" class="section">
             <h2>Available Projects</h2>
@@ -212,15 +187,36 @@
             </div>
         </section>
     </main>
-
     <!-- Smaller Bottom Image -->
     <img src="https://github.com/swiifu/EqiBuild/blob/main/EQIBUILD-removebg-preview.png" alt="Bottom Image" class="bottom-image">
-
     <footer>
         <p>&copy; 2024 EqiBuild</p>
     </footer>
-
     <script>
+        // Load Web3.js
+        const Web3 = require('web3');
+        const web3 = new Web3('https://YOUR_BLOCKCHAIN_PROVIDER_URL');
+
+        // ABI and Contract Address
+        const contractABI = [/* Your Contract ABI Here */];
+        const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+
+        const eqiBuildContract = new web3.eth.Contract(contractABI, contractAddress);
+
+        // Function to create a project
+        async function createProject(projectName, milestoneGoal, deadline) {
+            const accounts = await web3.eth.getAccounts();
+            return eqiBuildContract.methods.create_project(projectName, milestoneGoal, deadline)
+                .send({ from: accounts[0] });
+        }
+
+        // Function to donate
+        async function donateToProject(projectName, amount) {
+            const accounts = await web3.eth.getAccounts();
+            return eqiBuildContract.methods.donate(projectName, amount)
+                .send({ from: accounts[0] });
+        }
+
         // Store the total amount for each project
         const projectTotals = {
             1: 0,
@@ -232,7 +228,7 @@
             // Get the donation amount input
             const donationInput = document.getElementById(`project-${projectId}-amount`);
             const donationAmount = parseFloat(donationInput.value);
-
+            
             // Ensure the donation amount is valid
             if (isNaN(donationAmount) || donationAmount <= 0) {
                 alert("Please enter a valid donation amount.");
@@ -250,7 +246,6 @@
             donationInput.value = '';
 
             alert(`Thank you for donating $${donationAmount.toFixed(2)} to Project ${projectId}!`);
-        }
-    </script>
-</body>
-</html>
+            
+            // Example call to donate to a project
+            donateToProject('New Park[_{{{CITATION{{{_1{](https://github.com/firdauscomel/react-keeper/tree/0e9e7b1d1aee865a35c3e311ffeb07e3d430c7b7/src%2FNavbar.js)
