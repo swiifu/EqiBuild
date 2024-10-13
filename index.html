@@ -4,42 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decentralized Crowdfunding for Public Infrastructure</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        body, h1, h2, h3, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ddd; /* Light text for contrast */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #1f1f1f; /* Dark header */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 50px 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        #projects-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        .project-box {
+            width: 300px;
+            background-color: #1f1f1f; /* Dark background for boxes */
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slight shadow */
+            transition: transform 0.2s ease;
+        }
+
+        .project-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-box h3 {
+            font-size: 1.6rem;
+            color: #FFD700; /* Golden yellow for project titles */
+        }
+
+        .project-box p {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .project-box strong {
+            color: #fff;
+        }
+
+        .donation-section {
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444; /* Darker border for input */
+            background-color: #333; /* Dark input background */
+            color: #fff;
+            width: 120px;
+            margin-right: 10px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #FFD700, #FFEF82);
+            color: #000;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #FFB300, #FFD700);
+        }
+
+        footer {
+            background-color: #1f1f1f; /* Dark footer */
+            padding: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <div class="container">
             <h1>Community Infrastructure Fund</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#vote">Vote</a></li>
-                    <li><a href="#dashboard">Dashboard</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="home" class="section">
-            <h2>Welcome!</h2>
-            <p>Empowering communities to fund local infrastructure projects.</p>
-        </section>
-
         <section id="projects" class="section">
             <h2>Available Projects</h2>
-            <div id="project-list" class="project-list"></div>
-        </section>
-
-        <section id="vote" class="section">
-            <h2>Vote on Projects</h2>
-            <div id="voting-section" class="voting-section"></div>
-        </section>
-
-        <section id="dashboard" class="section">
-            <h2>Project Dashboard</h2>
-            <div id="dashboard-section" class="dashboard-section"></div>
+            <div id="projects-list">
+                <!-- Project 1 -->
+                <div class="project-box">
+                    <h3>Build a Local Park</h3>
+                    <p>Help fund the creation of a local community park for families to enjoy.</p>
+                    <p><strong>Total Raised: $<span id="project-1-total">0</span></strong></p>
+                    <div class="donation-section">
+                        <input type="number" id="project-1-amount" placeholder="Amount">
+                        <button onclick="donateToProject(1)">Donate</button>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-box">
+                    <h3>New Public Library</h3>
+                    <p>Support the construction of a new public library in the city center.</p>
+                    <p><strong>Total Raised: $<span id="project-2-total">0</span></strong></p>
+                    <div class="donation-section">
+                        <input type="number" id="project-2-amount" placeholder="Amount">
+                        <button onclick="donateToProject(2)">Donate</button>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-box">
+                    <h3>Rebuild Roads</h3>
+                    <p>Donate towards repairing and modernizing our city's road infrastructure.</p>
+                    <p><strong>Total Raised: $<span id="project-3-total">0</span></strong></p>
+                    <div class="donation-section">
+                        <input type="number" id="project-3-amount" placeholder="Amount">
+                        <button onclick="donateToProject(3)">Donate</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -47,6 +199,30 @@
         <p>&copy; 2024 Community Infrastructure Fund</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const projectTotals = {
+            1: 0,
+            2: 0,
+            3: 0
+        };
+
+        function donateToProject(projectId) {
+            const donationInput = document.getElementById(`project-${projectId}-amount`);
+            const donationAmount = parseFloat(donationInput.value);
+
+            if (isNaN(donationAmount) || donationAmount <= 0) {
+                alert("Please enter a valid donation amount.");
+                return;
+            }
+
+            projectTotals[projectId] += donationAmount;
+
+            const totalElement = document.getElementById(`project-${projectId}-total`);
+            totalElement.textContent = projectTotals[projectId].toFixed(2);
+            donationInput.value = '';
+
+            alert(`Thank you for donating $${donationAmount.toFixed(2)} to Project ${projectId}!`);
+        }
+    </script>
 </body>
 </html>
