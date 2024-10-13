@@ -4,7 +4,7 @@
     <br />
 </p>
 <p align="center"><strong style="font-size: 10vw;">EqiBuild</strong></p>
-<p align="center"><strong style="font-size: 30px;">Decentralised Government Tax Control</strong></p>
+<p align="center"><strong style="font-size: 30px;">Decentralised Local Infrastructure Crowdfunding</strong></p>
 <p align="center" style="display: flex; justify-content: center; align-items: center;">
     <a href="https://www.easya.io/">
         <img src="https://github.com/user-attachments/assets/09cfc307-f04f-4225-8c3b-bc96c47583a6" alt="EasyA" style="height: 21px;"/>
