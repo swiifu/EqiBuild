@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/@stellar-sdk"></script>
+<script src="https://cdn.jsdelivr.net/npm/soroban-client"></script>
+
+<script>
+    // Initialize Stellar and Soroban SDK
+    const server = new StellarSdk.Server('https://horizon-testnet.stellar.org'); // Testnet
+    const sorobanServer = new SorobanClient.Server('https://horizon-testnet.stellar.org');
+
+    const CONTRACT_ID = "C2F0B3F938AE4D0A73E2F2D917BCF0BB77E79C450F7BA85BF9C6F1D0B93A5D4F"; // Replace with your Soroban contract ID
+    const FEE = 100;
+
+    // Function to initialize Stellar and Soroban connection
+    async function initStellarSoroban() {
+        // Generate a keypair (testnet only, in production use a secure wallet)
+        const pair = StellarSdk.Keypair.random();
+        console.log(`Public Key: ${pair.publicKey()}`);
+        console.log(`Secret: ${pair.secret()}`);
+
+        // Fund the account on Stellar Testnet (for testing)
+        try {
+            await fetch(`https://friendbot.stellar.org?addr=${pair.publicKey()}`);
+            console.log("Account funded successfully!");
+        } catch (error) {
+            console.error("Error funding account:", error);
+        }
+    }
+
+    window.onload = initStellarSoroban;
+</script>
