@@ -11,7 +11,6 @@
     <span style="display: inline-flex; align-items: center; background-color: #1c1c1c; padding: 5px; border-radius: 6px;">
         <img src="https://img.shields.io/github/stars/jjjutla/melodot?style=social" alt="GitHub stars"/>
         <span style="margin: 0 10px; color: white; font-size: 14px;"></span>
-        
         </a>
     </span>
 </p>
@@ -43,21 +42,18 @@ EqiBuild is meant to be a decentralised app focused on helping to simplify the w
 
 ### Roadmap
 
-- [x] Develop Metadata Layer and Parachain for Artists to Upload Music Assets
-- [x] Implement Binary Tree structure for music asset organization
-- [x] Create custom NFT standard using Substrate Pallet
-- [x] Integrate PolkadotJS API for frontend-parachain connection
-- [x] Integrate Meta OSS AudioCraft for AI Music Generation
-- [x] Develop similarity analysis system using Vector DB
-- [x] Implement OriginTrail integration for decentralized storage and provenance tracking
-- [x] Create beta version of the expanded Melodot platform
-- [ ] Expand music database by integrating with MusicBrainz API
-- [ ] Improve audio fingerprinting system, potentially integrating AcoustID
-- [ ] Enhance AI Music Generation to include vocals
-- [ ] Implement cover art generation feature using AI
-- [ ] Implement ERC-3643 token for artist-fan interactions and rewards
-- [ ] Integration with music streaming service and royalty payments
-- [ ] Create private rights layer for confidential and commercial songs using XCM/encryption
+- [ ] Design token standards and metadata to represent infrastructure project contributions on Stellar
+- [ ] Create a tiered crowdfunding structure using Stellar smart contracts to release funds upon milestone completion
+- [ ] Connect the frontend with Stellar’s blockchain for low-fee micro-contributions and real-time transaction confirmation
+- [ ] Allow token holders to vote on project priorities and fund distribution using Stellar smart contracts
+- [ ] Use smart contracts to release funds only when project milestones are verified through community or system validation
+- [ ] Implement ERC-3643 token system where contributors receive tokenized rewards and perks for their participation
+- [ ] Develop a mobile and web dApp to facilitate global contributions with Stellar’s cost-efficient infrastructure
+- [ ] Use IPFS to store and make accessible project documentation, updates, and progress reports
+- [ ] Leverage Stellar’s Anchor system for easy fiat-to-crypto conversions to enable global participation
+- [ ] Launch a beta version with select projects, gather feedback, and refine platform features
+- [ ] Implement AI to suggest projects based on community needs and previous funding success
+- [ ] Connect with government and NGO APIs to validate projects and access additional funding opportunities
 
 
 ## Contributing & License
